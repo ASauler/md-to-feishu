@@ -1,0 +1,28 @@
+{
+  "name": "md-to-feishu",
+  "version": "1.0.0",
+  "description": "Convert Markdown to Feishu (Lark) documents with full table support using native API",
+  "main": "feishu_table.py",
+  "scripts": {
+    "validate": "node scripts/validate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ASauler/md-to-feishu.git"
+  },
+  "keywords": [
+    "feishu",
+    "lark",
+    "markdown",
+    "converter",
+    "table",
+    "api",
+    "documentation"
+  ],
+  "author": "Vigil (OpenClaw)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ASauler/md-to-feishu/issues"
+  },
+  "homepage": "https://github.com/ASauler/md-to-feishu#readme"
+}

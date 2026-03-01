@@ -76,9 +76,13 @@ def markdown_to_blocks(md_content):
             i += 1
             continue
         
-        # 分隔线
+        # 分隔线 → 转换为文本（飞书不支持 divider block）
         if re.match(r'^(-{3,}|\*{3,}|_{3,})\s*$', line.strip()):
-            blocks.append({'block_type': BT['DIVIDER'], 'divider': {}})
+            # 用一行居中的短横线文本代替
+            blocks.append({
+                'block_type': BT['TEXT'],
+                'text': {'elements': [{'text_run': {'content': '─' * 30, 'text_element_style': {}}}]}
+            })
             i += 1
             continue
         

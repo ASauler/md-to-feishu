@@ -61,7 +61,7 @@ def markdown_to_blocks(md_content):
     """将 Markdown 转换为飞书 block 结构"""
     BT = {
         'TEXT': 2, 'H1': 3, 'H2': 4, 'H3': 5, 'H4': 6, 'H5': 7, 'H6': 8,
-        'BULLET': 12, 'ORDERED': 13, 'CODE': 14, 'QUOTE': 15, 'DIVIDER': 27
+        'BULLET': 12, 'ORDERED': 13, 'CODE': 14, 'QUOTE': 15, 'DIVIDER': 22
     }
     
     lines = md_content.split('\n')
@@ -76,13 +76,9 @@ def markdown_to_blocks(md_content):
             i += 1
             continue
         
-        # 分隔线 → 转换为文本（飞书不支持 divider block）
+        # 分隔线
         if re.match(r'^(-{3,}|\*{3,}|_{3,})\s*$', line.strip()):
-            # 用一行居中的短横线文本代替
-            blocks.append({
-                'block_type': BT['TEXT'],
-                'text': {'elements': [{'text_run': {'content': '─' * 30, 'text_element_style': {}}}]}
-            })
+            blocks.append({'block_type': BT['DIVIDER'], 'divider': {}})
             i += 1
             continue
         
